@@ -104,3 +104,7 @@ table {
     border-radius: 5px;
     overflow: hidden;
 }
+
+section i {
+    color: green;
+}
