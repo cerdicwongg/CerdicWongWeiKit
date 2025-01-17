@@ -96,10 +96,6 @@ footer {
 }
 
 /* Bonus Mark Customisations */
-section {
-    transition: transform 0.3s ease;
-}
-
 header, footer {
     box-shadow: #333;
 }
