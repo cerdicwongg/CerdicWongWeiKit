@@ -6,14 +6,14 @@ function avgPrice() {
     let totalPrice = 0;
 
     for (let price of amdPrices) { 
-        totalPrice += amdPrices[price];
+        totalPrice += price;
     }
 
     // divide by length
     let avg = 0;
     avg = totalPrice / amdPrices.length;
 
-    console.log(avg);
+    console.log("The 7-day SMA of AMD is " + avg.toFixed(2));
 }
 
 avgPrice()
