@@ -1,0 +1,60 @@
+Example Question:
+p.then(value => console.log(value));
+
+Question 1:
+// Your code here
+p.then(data => console.log(data));
+
+Question 2:
+// Your code here
+p.catch(error => console.log(error));
+
+Question 3:
+// Your code here
+p.then((user) => {
+    console.log(user);
+})
+
+Question 4:
+// Your code here
+p.then((user) => {
+    console.log(user['name']);
+}) 
+
+Question 5:
+// Your code here
+p.catch(error => console.log(error));
+
+Question 6:
+// Your code here
+p.finally(() => console.log('Promise settled'));
+
+Question 7:
+// Your code here
+p.then(value => console.log(value * 2));
+
+Question 8:
+// Your code here
+p.catch(error => console.log(0));
+
+Question 9:
+// Your code here
+Promise.all(promises).then((values) => {
+    console.log(values);
+})
+
+Question 10:
+// Your code here
+Promise.race(promises).then((value) => {
+    console.log(value);
+})
+
+Bonus Question:
+// Your code here
+const delayedHello = p.then(value => 
+  Promise.race([
+    new Promise(resolve => setTimeout(() => resolve('Hello ' + value), 1000))
+  ])
+);
+
+delayedHello.then(console.log);
