@@ -8,7 +8,7 @@ function PublicBlogPost(props) {
       By {props.name} on {props.date}
     </p>
     <p>
-      Welcome to my first blog post! Today, I want to share my journey into the world of blogging. It has been an exciting experience so far, and I can't wait to see where this path leads me.
+      {props.content}
     </p>
   </div>
 
@@ -19,7 +19,10 @@ function PrivateBlogPost() {
 }
 
 function BlogList() {
-  { PublicBlogPost((title) => blogPosts.title === "My First Blog Post") }
+  <div>
+
+  </div>
+
 }
 
 function Header() {
@@ -71,9 +74,10 @@ function App() {
       private: false
     }
   ];
+
   return <div>
     <Header />
-    <PublicBlogPost />
+    <BlogList />
   </div>
 };
 
