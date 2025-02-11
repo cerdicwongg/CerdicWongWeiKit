@@ -1,35 +1,42 @@
 // root.js
 
-function PublicBlogPost(props) {
-  return <div style={{ border: "1px solid lightgrey", padding: "12px" }}>
-    <h1>My First Blog Post</h1>
-    <BlogList key={props.title} />
-    <p>
-      By {props.name} on {props.date}
+function PublicBlogPost({ title, author, date, content }) {
+  return <div className="blog-post">
+    <h1>{title}</h1>
+    <p className="meta">
+      By {author} on {date}
     </p>
     <p>
-      {props.content}
+      {content}
     </p>
   </div>
-
 }
 
-function PrivateBlogPost() {
-
+function PrivateBlogPost({ title, author, date, content }) {
+  return
 }
 
-function BlogList() {
-  <div>
-
-  </div>
-
+function BlogList({ posts }) {
+  return (
+    <div className="blog-list">
+      {posts.map((post) => (
+        <div key={post.title} className="blog-post">
+          <h1>{post.title}</h1>
+          <p className="meta">
+            By {post.author} on {post.date}
+          </p>
+          <p>{post.content}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function Header() {
-  return <div style={{ backgroundColor: "black", color: "white", padding: "24px", textAlign: "center" }}>
+  return <header>
     <h1>My Blog</h1>
     <p>A blog about everything</p>
-  </div>
+  </header>
 }
 
 function Footer() {
@@ -77,7 +84,7 @@ function App() {
 
   return <div>
     <Header />
-    <BlogList />
+    <BlogList posts={blogPosts} />
   </div>
 };
 
