@@ -1,9 +1,10 @@
 // root.js
 
 function PublicBlogPost(props) {
-  return <div style= {{border: "1px solid lightgrey", padding: "12px"}}>
+  return <div style={{ border: "1px solid lightgrey", padding: "12px" }}>
     <h1>My First Blog Post</h1>
-    <p style={{ fontStyle: "italic", color: "grey" }}>
+    <BlogList key={props.title} />
+    <p>
       By {props.name} on {props.date}
     </p>
     <p>
@@ -18,7 +19,7 @@ function PrivateBlogPost() {
 }
 
 function BlogList() {
-
+  { PublicBlogPost((title) => blogPosts.title === "My First Blog Post") }
 }
 
 function Header() {
@@ -71,7 +72,6 @@ function App() {
     }
   ];
   return <div>
-    {blogPosts.title((title) => title === "My First Blog Post")}
     <Header />
     <PublicBlogPost />
   </div>
