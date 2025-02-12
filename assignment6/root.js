@@ -1,25 +1,17 @@
 // root.js
 
-function PublicBlogPost({ title, author, date, content }) {
-  return <div className="blog-post">
-    <h1>{title}</h1>
-    <p className="meta">
-      By {author} on {date}
-    </p>
-    <p>
-      {content}
-    </p>
-  </div>
+function PublicBlogPost() {
+
 }
 
-function PrivateBlogPost({ title, author, date, content }) {
-  return
+function PrivateBlogPost() {
+
 }
 
-function BlogList({ posts }) {
+function BlogList({props}) {
   return (
     <div className="blog-list">
-      {posts.map((post) => (
+      {props.map((post) => (
         <div key={post.title} className="blog-post">
           <h1>{post.title}</h1>
           <p className="meta">
@@ -39,8 +31,12 @@ function Header() {
   </header>
 }
 
-function Footer() {
-
+function Footer({ year }) {
+  return (
+    <footer className="footer">
+      <p>© {year} My Blog. All rights reserved.</p>
+    </footer>
+  )
 };
 
 function App() {
@@ -81,10 +77,12 @@ function App() {
       private: false
     }
   ];
+  const currentYear = new Date().getFullYear();
 
   return <div>
     <Header />
-    <BlogList posts={blogPosts} />
+    <BlogList props={blogPosts} />
+    <Footer year={currentYear} />
   </div>
 };
 
