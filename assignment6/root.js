@@ -14,7 +14,6 @@ function PublicBlogPost(props) {
 }
 
 function PrivateBlogPost(props) {
-  console.log(props)
   props = props.props
   return (
     <div className="blog-list">
@@ -27,11 +26,11 @@ function PrivateBlogPost(props) {
   );
 }
 
-
 function BlogList(blogPost) {
+  blogPost = blogPost.blogPost
   return (
     <>
-      {blogPost.blogPost.map((bp => (
+      {blogPost.map((bp => (
         bp.private == true ? <PrivateBlogPost props={bp} key={bp.title}/>
         : <PublicBlogPost props={bp} key={bp.title}/>
       )))}
