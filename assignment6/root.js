@@ -1,26 +1,41 @@
 // root.js
 
-function PublicBlogPost() {
-
-}
-
-function PrivateBlogPost() {
-
-}
-
-function BlogList({props}) {
+function PublicBlogPost(props) {
+  props = props.props
   return (
     <div className="blog-list">
-      {props.map((post) => (
-        <div key={post.title} className="blog-post">
-          <h1>{post.title}</h1>
-          <p className="meta">
-            By {post.author} on {post.date}
-          </p>
-          <p>{post.content}</p>
+      <div key={props.title} className="blog-post">
+          <h2>{props.title}</h2>
+          <p className="meta">By {props.author} on {props.date}</p>
+          <p>{props.content}</p>
         </div>
-      ))}
     </div>
+  );
+}
+
+function PrivateBlogPost(props) {
+  console.log(props)
+  props = props.props
+  return (
+    <div className="blog-list">
+        <div key={props.title} className="private-posts">
+          <h2>{props.title}</h2>
+          <p className="meta">By {props.author} on {props.date}</p>
+          <p>The content of this post is private</p>
+        </div>
+    </div>
+  );
+}
+
+
+function BlogList(blogPost) {
+  return (
+    <>
+      {blogPost.blogPost.map((bp => (
+        bp.private == true ? <PrivateBlogPost props={bp} key={bp.title}/>
+        : <PublicBlogPost props={bp} key={bp.title}/>
+      )))}
+    </>
   );
 }
 
@@ -81,7 +96,7 @@ function App() {
 
   return <div>
     <Header />
-    <BlogList props={blogPosts} />
+    <BlogList blogPost={blogPosts} />
     <Footer year={currentYear} />
   </div>
 };
